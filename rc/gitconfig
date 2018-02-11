@@ -1,7 +1,8 @@
 [push]
 	default = simple
 [core]
-	editor = nano
+	editor = vim
 [user]
 	email = mustafagonul@gmail.com
 	name = Mustafa Gonul
+
