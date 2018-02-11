@@ -1,14 +1,24 @@
+# - specify <create> as <true> if the parent directory should be created if necessary
+# - specify <relink> as <true> if incorrect symbolic links should be automatically overwritten,
+# - specify <force> as <true> if the file or directory should be forcibly linked
+# - specify <relative> as <true> if the symbolic link should have a relative path.
+
 - defaults:
     link:
       relink: true
+      force: true
 
 - clean: ['~']
 
 - link:
     ~/.dotfiles: ''
-    ~/.tmux.conf: tmux.conf
-    ~/.vim: vim
-    ~/.vimrc: vimrc
+    ~/.bashrc: rc/bashrc
+    ~/.gdbinit: rc/gdbinit
+    ~/.gitconfig: rc/gitconfig
+    ~/.nanorc: rc/nanorc
+    ~/.vimrc: rc/vimrc
+    ~/.vim: rc/vim
+    ~/.zshrc: rc/zshrc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]

@@ -1,0 +1,7 @@
+[push]
+	default = simple
+[core]
+	editor = nano
+[user]
+	email = mustafagonul@gmail.com
+	name = Mustafa Gonul
