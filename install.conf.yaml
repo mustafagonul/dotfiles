@@ -18,6 +18,7 @@
     ~/.nanorc: rc/nanorc
     ~/.vimrc: rc/vimrc
     ~/.vim: rc/vim
+    ~/.xinitrc: rc/xinitrc
     ~/.zshrc: rc/zshrc
 
 - shell:
