@@ -1,8 +1,43 @@
+" ---------------------------------------------------------------------------------------------------------------------------------------------------------
+" Most basic options
+" ---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+" Not compatible with vi
+set nocp
+
+" use the mouse
+set mouse=a
+
 " Show line numbers
 set number
 
+" Wrap lines
+set wrap
+
+" Hidden mode (keeps closed buffers in memory)
+set hidden
+
+" Seems to be a good idea to disable backups & swap files
+" since files I open are not really big and RAM is cheap.
+set nobackup
+set noswapfile
+
+" large history of commands and undo levels
+set history=1000
+set undolevels=1000
+
+" Silent!
+set visualbell
+autocmd GuiEnter * set t_vb=
+set noerrorbells
+
+" Remove trailing whitespaces
+autocmd BufWritePre * :%s/\s\+$//e
+
 " Highlight matching brace
 set showmatch
+" ---------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 " vim-taglist
 let Tlist_Compact_Format = 1
@@ -10,15 +45,34 @@ let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Close_On_Select = 1
 nnoremap <C-l> :TlistToggle<CR>
 
-" Use mouse
-set mouse=a
-
 " Filetype detection
 filetype plugin on
+
+" Color Scheme
 syntax on
+colorscheme slate
 
 " Nerd Tree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+
+" ---------------------------------------------------------------------------------------------------------------------------------------------------------
+" Powerline
+" ---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+" Fancy powerline symbols
+let g:Powerline_symbols = 'fancy'
+" powerline uses python3
+let g:powerline_pycmd = 'py3'
+" Font I use
+" set guifont=Monaco\ for\ Powerline\ 10
+set guifont=Hack\ 10
+" Redraw when needed
+set lazyredraw
+
+" ---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
