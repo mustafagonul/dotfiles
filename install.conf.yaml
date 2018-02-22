@@ -16,6 +16,7 @@
     ~/.gdbinit: rc/gdbinit
     ~/.gitconfig: rc/gitconfig
     ~/.nanorc: rc/nanorc
+    ~/.tmux.conf: rc/tmux.conf
     ~/.vimrc: rc/vimrc
     ~/.vim: rc/vim
     ~/.xinitrc: rc/xinitrc
