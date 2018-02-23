@@ -84,5 +84,6 @@ if has("autocmd")
 	filetype plugin indent on
 endif
 
+" let NERDTreeMapOpenInTab='<ENTER>'
 let NERDTreeIgnore = ['\.in$', '^Makefile$', '\.lo$', '\.o$', '\.la$', 'target/']
 

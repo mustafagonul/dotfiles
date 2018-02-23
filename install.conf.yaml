@@ -18,7 +18,7 @@
     ~/.nanorc: rc/nanorc
     ~/.tmux.conf: rc/tmux.conf
     ~/.vimrc: rc/vimrc
-    ~/.vim: rc/vim
+    ~/.vim: vim
     ~/.xinitrc: rc/xinitrc
     ~/.zshrc: rc/zshrc
 
