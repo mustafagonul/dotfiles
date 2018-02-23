@@ -12,6 +12,7 @@
 
 - link:
     ~/.dotfiles: ''
+    ~/.aliases: rc/aliases
     ~/.bashrc: rc/bashrc
     ~/.gdbinit: rc/gdbinit
     ~/.gitconfig: rc/gitconfig
