@@ -20,6 +20,7 @@ set tabstop=2
 set shiftwidth=2
 set noexpandtab
 set autoindent
+set belloff=all
 
 let g:ycm_server_python_interpreter='/usr/bin/python2'
 let g:powerline_pycmd='py3'
@@ -38,12 +39,7 @@ syntax on
 set colorcolumn=130
 highlight ColorColumn ctermbg=darkgray
 set nu
-set background=dark
-" colorscheme moria
-" colorscheme dante
-" colorscheme candycode
-colorscheme blacksea
-" colorscheme autumn2
+colorscheme codedark
 
 function Trim_whitespace()
 	if !&binary && &filetype != 'diff'
