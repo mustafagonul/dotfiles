@@ -124,8 +124,8 @@ endif
 " Single-click to expand the directory, double-click to open the file
 let g:NERDTreeMouseMode = 2
 
- " Show hidden files
-let g:NERDTreeShowHidden = 1 
+" Show hidden files
+"let g:NERDTreeShowHidden = 1 
 
 " Ignore files
 let NERDTreeIgnore = ['\.in$', '^Makefile$', '\.lo$', '\.o$', '\.la$', 'target/']
