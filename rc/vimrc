@@ -14,32 +14,79 @@ runtime! archlinux.vim
 " Or better yet, read /usr/share/vim/vim74/vimrc_example.vim or the vim manual
 " and configure vim to your own liking!
 
-set laststatus=2
-set encoding=utf8
-set tabstop=2
-set shiftwidth=2
-set noexpandtab
-set autoindent
+
+
+" Turns off the bell
 set belloff=all
 
-let g:ycm_server_python_interpreter='/usr/bin/python2'
-let g:powerline_pycmd='py3'
+" Enconding
+set encoding=utf8
 
+"
+set tabstop=2
+
+"
+set shiftwidth=2
+
+"
+set noexpandtab
+
+"
+set autoindent
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Powerline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:powerline_pycmd='py3'
+set laststatus=2
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" YCM
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ycm_server_python_interpreter='/usr/bin/python2'
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim Detect Indent
+" Github: https://github.com/ciaranm/detectindent
+" Package: vim-detectindent-git
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:detectindent_preferred_indent=2
 let g:detectindent_preferred_when_mixed=2
 
 let g:clang_library_path='/usr/lib'
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Functions
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has('gui_running')
 	set guioptions-=T
 	set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
 endif
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Scheme
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
 set colorcolumn=130
 highlight ColorColumn ctermbg=darkgray
 set nu
-colorscheme codedark
+colorscheme codedark " https://github.com/tomasiser/vim-code-dark
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Functions
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function Insert_license()
+	call append(0, "/*")
+	call append(1, " * Mustafa Gönül (mustafagonul@gmail.com)")
+	call append(2, " */")
+	call append(3, "")
+endfunction
+
 
 function Trim_whitespace()
 	if !&binary && &filetype != 'diff'
@@ -51,19 +98,10 @@ function Trim_whitespace()
 	endif
 endfunction
 
-function Toggle_nerd_tree()
-	NERDTreeToggle
-endfunction
 
-function Insert_license()
-	call append(0, "/*")
-	call append(1, " * Mustafa Gönül (mustafagonul@gmail.com)")
-	call append(2, " */")
-	call append(3, "")
-endfunction
-
-nnoremap <tab> :call Toggle_nerd_tree()<CR>
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Project
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 augroup project
     autocmd!
     autocmd BufRead,BufNewFile *.h,*.hpp,*.cpp,*.impl set filetype=cpp.doxygen
@@ -73,20 +111,59 @@ augroup project
     autocmd BufWritePre *.h,*.hpp,*.cpp,*.impl,*.c call Trim_whitespace()
 augroup END
 
-command -bar -nargs=0 ToggleNerdTree call Toggle_nerd_tree()
-command -bar -nargs=0 InsLic call Insert_license()
 
 if has("autocmd")
 	filetype plugin indent on
 endif
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" the NERDTree
+" https://github.com/scrooloose/nerdtree
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Single-click to expand the directory, double-click to open the file
+let g:NERDTreeMouseMode = 2
+
+ " Show hidden files
+let g:NERDTreeShowHidden = 1 
+
+" Ignore files
 let NERDTreeIgnore = ['\.in$', '^Makefile$', '\.lo$', '\.o$', '\.la$', 'target/']
 
+" Close a tab if the only remaining window is NerdTree (also taken from the Readme)
+" https://medium.com/@victormours/a-better-nerdtree-setup-3d3921abc0b9
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+function Toggle_nerd_tree()
+	NERDTreeToggle
+endfunction
+
+" NERDTree shortcut
+nnoremap <tab> :call Toggle_nerd_tree()<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tagbar: a class outline viewer for Vim
+" https://github.com/majutsushi/tagbar
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <F8> :TagbarToggle<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enhanced Highlight for Modern C++
 " https://github.com/octol/vim-cpp-enhanced-highlight
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:cpp_experimental_simple_template_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 let g:cpp_concepts_highlight = 1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Commands 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+command -bar -nargs=0 ToggleNerdTree call Toggle_nerd_tree()
+command -bar -nargs=0 InsLic call Insert_license()
 
