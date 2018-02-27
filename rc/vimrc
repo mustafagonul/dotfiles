@@ -112,11 +112,6 @@ augroup project
 augroup END
 
 
-if has("autocmd")
-	filetype plugin indent on
-endif
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " the NERDTree
 " https://github.com/scrooloose/nerdtree
@@ -156,7 +151,7 @@ nmap <F8> :TagbarToggle<CR>
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
-let g:cpp_experimental_simple_template_highlight = 1
+" let g:cpp_experimental_simple_template_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 let g:cpp_concepts_highlight = 1
 
@@ -166,4 +161,13 @@ let g:cpp_concepts_highlight = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command -bar -nargs=0 ToggleNerdTree call Toggle_nerd_tree()
 command -bar -nargs=0 InsLic call Insert_license()
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Filetype 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has("autocmd")
+	filetype plugin indent on
+endif
+
 
