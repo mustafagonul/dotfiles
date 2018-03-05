@@ -16,5 +16,5 @@ if [[ -f $HOME/.aliases ]]; then
 	. $HOME/.aliases
 fi
 
-
+export PATH=${PATH}:${HOME}/.local/bin
 
