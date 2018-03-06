@@ -34,6 +34,9 @@ set noexpandtab
 "
 set autoindent
 
+" selects the text, keeping the line numbers out of the picture
+set mouse=a
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Powerline
@@ -60,11 +63,18 @@ let g:clang_library_path='/usr/lib'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Functions
+" GUI - GVIM 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has('gui_running')
-	set guioptions-=T
-	set guifont=Droid\ Sans\ Mono\ for\ Powerline\ 10
+	" set guioptions-=m  "remove menu bar
+
+	" This option is disabled somehow makes command line disappear
+	"set guioptions-=T  "remove toolbar
+
+	set guioptions-=r  "remove right-hand scroll bar
+	set guioptions-=L  "remove left-hand scroll bar
+
+	set guifont=Hack\ Regular\ 10
 endif
 
 
@@ -120,8 +130,11 @@ augroup END
 " Single-click to expand the directory, double-click to open the file
 let g:NERDTreeMouseMode = 2
 
+" Closes NERDTree after file opened
+let NERDTreeQuitOnOpen = 1
+
 " Show hidden files
-"let g:NERDTreeShowHidden = 1 
+" let g:NERDTreeShowHidden = 1 
 
 " Ignore files
 let NERDTreeIgnore = ['\.in$', '^Makefile$', '\.lo$', '\.o$', '\.la$', 'target/']
@@ -172,4 +185,9 @@ if has("autocmd")
 	filetype plugin indent on
 endif
 
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Shortcuts 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set hidden
+nnoremap <C-N> :bnext<CR>
+nnoremap <C-P> :bprev<CR>
