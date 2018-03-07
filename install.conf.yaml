@@ -12,6 +12,7 @@
 
 - link:
     ~/.dotfiles: ''
+    ~/.scripts: $HOME/git/MG/scripts
     ~/.aliases: rc/aliases
     ~/.bashrc: rc/bashrc
     ~/.ctags: rc/ctags
