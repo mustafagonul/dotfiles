@@ -41,6 +41,10 @@ set mouse=a
 set hlsearch
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
+" ignoring node_modules directory
+" TODO mustafa: specialize this command for Node.js projects"
+set wildignore+=./node_modules/**
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Powerline
