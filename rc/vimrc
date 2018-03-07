@@ -143,6 +143,10 @@ let NERDTreeIgnore = ['\.in$', '^Makefile$', '\.lo$', '\.o$', '\.la$', 'target/'
 " https://medium.com/@victormours/a-better-nerdtree-setup-3d3921abc0b9
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
+" https://github.com/scrooloose/nerdtree
+" How can I open a NERDTree automatically when vim starts up?
+" autocmd vimenter * NERDTree
+
 function Toggle_nerd_tree()
 	NERDTreeToggle
 endfunction
@@ -156,6 +160,34 @@ nnoremap <tab> :call Toggle_nerd_tree()<CR>
 " https://github.com/majutsushi/tagbar
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <F8> :TagbarToggle<CR>
+let g:tagbar_left=1
+let g:tagbar_sort=0
+let g:tagbar_show_linenumbers=1
+
+" Opens Tagbar automatically on Vim startup
+" autocmd VimEnter * nested :TagbarOpen
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ctags 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Exuberant Ctags (Vanilla)
+" https://github.com/majutsushi/tagbar/wiki#exuberant-ctags-vanilla
+
+let g:tagbar_type_typescript = {
+  \ 'ctagstype': 'typescript',
+  \ 'kinds': [
+    \ 'c:classes',
+    \ 'n:modules',
+    \ 'f:functions',
+    \ 'v:variables',
+    \ 'v:varlambdas',
+    \ 'm:members',
+    \ 'i:interfaces',
+    \ 'e:enums',
+  \ ]
+\ }
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

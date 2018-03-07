@@ -6,3 +6,5 @@
 	email = mustafagonul@gmail.com
 	name = Mustafa Gonul
 
+[url "https://"]
+	insteadOf = git://

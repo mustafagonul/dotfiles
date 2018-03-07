@@ -14,6 +14,7 @@
     ~/.dotfiles: ''
     ~/.aliases: rc/aliases
     ~/.bashrc: rc/bashrc
+    ~/.ctags: rc/ctags
     ~/.gdbinit: rc/gdbinit
     ~/.gitconfig: rc/gitconfig
     ~/.nanorc: rc/nanorc
