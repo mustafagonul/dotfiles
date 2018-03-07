@@ -37,6 +37,10 @@ set autoindent
 " selects the text, keeping the line numbers out of the picture
 set mouse=a
 
+" highlight all search matches
+set hlsearch
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Powerline
@@ -75,6 +79,8 @@ if has('gui_running')
 	set guioptions-=L  "remove left-hand scroll bar
 
 	set guifont=Hack\ Regular\ 10
+	
+	" hi Search guibg=LightBlue
 endif
 
 
