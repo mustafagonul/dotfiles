@@ -53,6 +53,16 @@ set wildignore+=./node_modules/**
 let g:powerline_pycmd='py3'
 set laststatus=2
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim devicons
+" https://github.com/ryanoasis/vim-devicons
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" loading the plugin
+let g:webdevicons_enable = 1
+" adding the flags to NERDTree
+let g:webdevicons_enable_nerdtree = 1
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " YCM
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -139,10 +149,10 @@ augroup END
 " https://github.com/scrooloose/nerdtree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Single-click to expand the directory, double-click to open the file
-let g:NERDTreeMouseMode = 2
+" let g:NERDTreeMouseMode = 2
 
 " Closes NERDTree after file opened
-let NERDTreeQuitOnOpen = 1
+" let NERDTreeQuitOnOpen = 1
 
 " Show hidden files
 " let g:NERDTreeShowHidden = 1 
@@ -152,7 +162,7 @@ let NERDTreeIgnore = ['\.in$', '^Makefile$', '\.lo$', '\.o$', '\.la$', 'target/'
 
 " Close a tab if the only remaining window is NerdTree (also taken from the Readme)
 " https://medium.com/@victormours/a-better-nerdtree-setup-3d3921abc0b9
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " https://github.com/scrooloose/nerdtree
 " How can I open a NERDTree automatically when vim starts up?
@@ -234,3 +244,6 @@ endif
 set hidden
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
+
+" Find in files
+map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
