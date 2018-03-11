@@ -41,10 +41,16 @@ set mouse=a
 set hlsearch
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
+" Vimgrep
+set grepprg=ag\ --vimgrep
+
 " ignoring node_modules directory
 " https://stackoverflow.com/questions/1898987/how-to-exclude-file-patterns-in-vimgrep
 " TODO mustafa: specialize this command for Node.js projects"
 set wildignore+=./node_modules/**
+
+"
+set hidden
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -149,7 +155,7 @@ augroup END
 " https://github.com/scrooloose/nerdtree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Single-click to expand the directory, double-click to open the file
-" let g:NERDTreeMouseMode = 2
+let g:NERDTreeMouseMode = 2
 
 " Closes NERDTree after file opened
 " let NERDTreeQuitOnOpen = 1
@@ -173,7 +179,7 @@ function Toggle_nerd_tree()
 endfunction
 
 " NERDTree shortcut
-nnoremap <tab> :call Toggle_nerd_tree()<CR>
+nnoremap <silent> <tab> :call Toggle_nerd_tree()<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -238,12 +244,4 @@ if has("autocmd")
 	filetype plugin indent on
 endif
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Shortcuts 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set hidden
-nnoremap <C-N> :bnext<CR>
-nnoremap <C-P> :bprev<CR>
 
-" Find in files
-map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
