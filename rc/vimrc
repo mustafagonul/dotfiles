@@ -235,6 +235,7 @@ let g:cpp_class_decl_highlight = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command -bar -nargs=0 ToggleNerdTree call Toggle_nerd_tree()
 command -bar -nargs=0 InsLic call Insert_license()
+command -bar -nargs=0 TrimSpace call Trim_whitespace()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
