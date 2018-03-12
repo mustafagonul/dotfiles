@@ -34,3 +34,11 @@ imap <C-S-Down>  <Esc><C-W><Down>
 imap <C-S-Left>  <Esc><C-W><Left>
 imap <C-S-Right> <Esc><C-W><Right>
 
+" Ctrl + Arrow
+nmap <silent> <C-Left> ,b
+nmap <silent> <C-Right> ,w
+imap <silent> <C-Left> <C-o>,b
+imap <silent> <C-Right> <C-o>,w
+vmap <silent> <C-Left> ,b
+vmap <silent> <C-Right> ,w
+
