@@ -88,7 +88,7 @@ let g:clang_library_path='/usr/lib'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" GUI - GVIM 
+" GUI - GVIM
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has('gui_running')
 	" set guioptions-=m  "remove menu bar
@@ -100,7 +100,7 @@ if has('gui_running')
 	set guioptions-=L  "remove left-hand scroll bar
 
 	set guifont=Hack\ Regular\ 10
-	
+
 	" hi Search guibg=LightBlue
 endif
 
@@ -161,7 +161,7 @@ let g:NERDTreeMouseMode = 2
 " let NERDTreeQuitOnOpen = 1
 
 " Show hidden files
-" let g:NERDTreeShowHidden = 1 
+" let g:NERDTreeShowHidden = 1
 
 " Ignore files
 let NERDTreeIgnore = ['\.in$', '^Makefile$', '\.lo$', '\.o$', '\.la$', 'target/']
@@ -183,6 +183,32 @@ nnoremap <silent> <tab> :call Toggle_nerd_tree()<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" the NERDCommenter
+" https://github.com/scrooloose/nerdcommenter
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+" let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+" let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+" let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+" let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tagbar: a class outline viewer for Vim
 " https://github.com/majutsushi/tagbar
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -196,7 +222,7 @@ let g:tagbar_show_linenumbers=1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Ctags 
+" Ctags
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Exuberant Ctags (Vanilla)
@@ -231,7 +257,7 @@ let g:cpp_class_decl_highlight = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Commands 
+" Commands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command -bar -nargs=0 ToggleNerdTree call Toggle_nerd_tree()
 command -bar -nargs=0 InsLic call Insert_license()
@@ -239,7 +265,7 @@ command -bar -nargs=0 TrimSpace call Trim_whitespace()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Filetype 
+" Filetype
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("autocmd")
 	filetype plugin indent on
