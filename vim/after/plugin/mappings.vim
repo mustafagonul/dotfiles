@@ -19,8 +19,8 @@ nmap <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>
 
 " Find in files
-nnoremap <C-S-F> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
-inoremap <C-S-F> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+nnoremap <F3> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+inoremap <F3> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 
 " Close buffer
 if has('gui_running')
@@ -73,7 +73,7 @@ nmap <S-Down> <Nop>
 " http://vim.wikia.com/wiki/Insert_in_normal_mode
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Inserting an empty line
-nmap <CR> _i<Enter><Esc>
+" nmap <CR> _i<Enter><Esc>
 
 " Inserting a space
 nnoremap <Space> a<Space><Esc>

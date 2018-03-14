@@ -47,7 +47,7 @@ set grepprg=ag\ --vimgrep
 " ignoring node_modules directory
 " https://stackoverflow.com/questions/1898987/how-to-exclude-file-patterns-in-vimgrep
 " TODO mustafa: specialize this command for Node.js projects"
-set wildignore+=./node_modules/**
+" set wildignore+=./node_modules/** 
 
 "
 set hidden
