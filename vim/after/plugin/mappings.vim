@@ -21,6 +21,7 @@ imap <C-s> <Esc>:w<CR>
 " Find in files
 nnoremap <F3> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 inoremap <F3> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+xnoremap <F3> y/<C-R>"<CR> :<C-u>vimgrep /<C-R>"/j ** <Bar> cw <CR>
 
 " Close buffer
 if has('gui_running')
