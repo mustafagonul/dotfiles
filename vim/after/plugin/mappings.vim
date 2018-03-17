@@ -15,8 +15,14 @@ inoremap <C-Tab> <Esc>:bnext<CR>
 inoremap <C-S-Tab> <Esc>:bprev<CR>
 
 " Windows like shortcuts
+" Save
 nmap <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>
+" Select all
+nmap <C-a> ggVG<CR>
+imap <C-a> <Esc>ggVG<CR>
+
+
 
 " Find in files
 nnoremap <F3> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
