@@ -32,7 +32,7 @@ set shiftwidth=2
 set expandtab
 
 "
-set autoindent
+" set autoindent
 
 " selects the text, keeping the line numbers out of the picture
 set mouse=a
@@ -91,17 +91,17 @@ let g:clang_library_path='/usr/lib'
 " GUI - GVIM
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has('gui_running')
-	" set guioptions-=m  "remove menu bar
+  " set guioptions-=m  "remove menu bar
 
-	" This option is disabled somehow makes command line disappear
-	"set guioptions-=T  "remove toolbar
+  " This option is disabled somehow makes command line disappear
+  "set guioptions-=T  "remove toolbar
 
-	set guioptions-=r  "remove right-hand scroll bar
-	set guioptions-=L  "remove left-hand scroll bar
+  set guioptions-=r  "remove right-hand scroll bar
+  set guioptions-=L  "remove left-hand scroll bar
 
-	set guifont=Hack\ Regular\ 10
+  set guifont=Hack\ Regular\ 10
 
-	" hi Search guibg=LightBlue
+  " hi Search guibg=LightBlue
 endif
 
 
@@ -119,21 +119,21 @@ colorscheme codedark " https://github.com/tomasiser/vim-code-dark
 " Functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function Insert_license()
-	call append(0, "/*")
-	call append(1, " * Mustafa Gönül (mustafagonul@gmail.com)")
-	call append(2, " */")
-	call append(3, "")
+  call append(0, "/*")
+  call append(1, " * Mustafa Gönül (mustafagonul@gmail.com)")
+  call append(2, " */")
+  call append(3, "")
 endfunction
 
 
 function Trim_whitespace()
-	if !&binary && &filetype != 'diff'
-		normal mz
-		normal Hmy
-		%s/\s\+$//e
-		normal 'yz<CR>
-		normal `z
-	endif
+  if !&binary && &filetype != 'diff'
+    normal mz
+    normal Hmy
+    %s/\s\+$//e
+    normal 'yz<CR>
+    normal `z
+  endif
 endfunction
 
 
@@ -175,7 +175,7 @@ let NERDTreeIgnore = ['\.in$', '^Makefile$', '\.lo$', '\.o$', '\.la$', 'target/'
 " autocmd vimenter * NERDTree
 
 function Toggle_nerd_tree()
-	NERDTreeToggle
+  NERDTreeToggle
 endfunction
 
 " NERDTree shortcut
@@ -268,7 +268,7 @@ command -bar -nargs=0 TrimSpace call Trim_whitespace()
 " Filetype
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("autocmd")
-	filetype plugin indent on
+  filetype plugin indent on
 endif
 
 
