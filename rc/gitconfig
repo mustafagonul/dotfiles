@@ -4,7 +4,7 @@
 	editor = vim
 [user]
 	email = mustafagonul@gmail.com
-	name = Mustafa Gonul
+	name = Mustafa Gönül
 
 [url "https://"]
 	insteadOf = git://
