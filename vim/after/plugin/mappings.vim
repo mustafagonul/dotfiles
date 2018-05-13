@@ -74,6 +74,10 @@ vmap <silent> <C-k><C-k> <leader>c<Space>
 nmap <S-Up> <Nop>
 nmap <S-Down> <Nop>
 
+" Ctrl + Backspace
+" Ctrl + W deletes previous word
+" http://vim.wikia.com/wiki/Map_Ctrl-Backspace_to_delete_previous_word
+imap <C-BS> <C-W>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Insert in normal mode
