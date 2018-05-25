@@ -16,7 +16,15 @@ if [[ -f $HOME/.aliases ]]; then
 	. $HOME/.aliases
 fi
 
+# Scripts
+
 export PATH=${PATH}:${HOME}/.local/bin
+
+
+# Bitbake
+
+export PATH=${PATH}:$HOME/.bitbake/bin
+export PYTHONPATH=$HOME/.bitbake/lib
 
 
 # Most terminal emulators (ie. xterm, rxvt, PuTTY, etc) default to intercepting CTRL+S to suspend output
