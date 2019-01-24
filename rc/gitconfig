@@ -2,12 +2,16 @@
 	  default = simple
 [core]
 	  editor = vim
+
 [user]
 	  email = mustafagonul@gmail.com
 	  name = Mustafa Gönül
 
 [url "https://"]
 	  insteadOf = git://
+
+[init]
+    templatedir = ~/.git/templates
 
 [merge]
     tool = kdiff3
