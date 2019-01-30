@@ -23,6 +23,7 @@
     ~/.tmux.conf: rc/tmux.conf
     ~/.vimrc: rc/vimrc
     ~/.vim: vim
+    ~/.git: git
     ~/.xinitrc: rc/xinitrc
     ~/.zshrc: rc/zshrc
 

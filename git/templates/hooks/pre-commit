@@ -1,0 +1,92 @@
+#!/usr/bin/env bash
+
+# Reference: https://stackoverflow.com/questions/4220416/can-i-specify-multiple-users-for-myself-in-gitconfig/
+
+
+# -------- USER CONFIG
+# Patterns to match a repo's "remote.origin.url" - beginning portion of the hostname
+git_remotes[0]="mustafagonul"
+git_remotes[1]="code.siemens.com"
+
+# Adjust names and e-mail addresses
+local_id_0[0]="Mustafa Gönül"
+local_id_0[1]="mustafagonul@gmail.com"
+
+local_id_1[0]="Mustafa Gonul"
+local_id_1[1]="mustafa.gonul@siemens.com"
+
+local_fallback_id[0]="${local_id_1[0]}"
+local_fallback_id[1]="${local_id_1[1]}"
+
+
+# -------- FUNCTIONS
+setIdentity()
+{
+    local current_id local_id
+
+    current_id[0]="$(git config --get --local user.name)"
+    current_id[1]="$(git config --get --local user.email)"
+
+    local_id=("$@")
+
+    if [[ "${current_id[0]}" == "${local_id[0]}" &&
+          "${current_id[1]}" == "${local_id[1]}" ]]; then
+        printf " Local identity is:\n"
+        printf "»  User: %s\n»  Mail: %s\n\n" "${current_id[@]}"
+    else
+        printf "»  User: %s\n»  Mail: %s\n\n" "${local_id[@]}"
+        git config --local user.name "${local_id[0]}"
+        git config --local user.email "${local_id[1]}"
+    fi
+
+    return 0
+}
+
+
+# -------- IMPLEMENTATION
+current_remote_url="$(git config --get --local remote.origin.url)"
+
+if [[ "$current_remote_url" ]]; then
+
+    for service in "${git_remotes[@]}"; do
+
+        # Disable case sensitivity for regex matching
+        shopt -s nocasematch
+
+        if [[ "$current_remote_url" =~ $service ]]; then
+            case "$service" in
+
+                "${git_remotes[0]}" )
+                    printf "\n»» An Intermission\n»  %s repository found." "${git_remotes[0]}"
+                    setIdentity "${local_id_0[@]}"
+                    setGitHubRepo
+                    exit 0
+                    ;;
+
+                "${git_remotes[1]}" )
+                    printf "\n»» An Intermission\n»  %s repository found." "${git_remotes[1]}"
+                    setIdentity "${local_id_1[@]}"
+                    exit 0
+                    ;;
+
+                * )
+                    printf "\n»  pre-commit hook: unknown error\n» Quitting.\n"
+                    exit 1
+                    ;;
+
+            esac
+        fi
+    done
+else
+    printf "\n»» An Intermission\n»  No remote repository set. Using local fallback identity:\n"
+    printf "»  User: %s\n»  Mail: %s\n\n" "${local_fallback_id[@]}"
+
+    # Get the user's attention for a second
+    sleep 1
+
+    git config --local user.name "${local_fallback_id[0]}"
+    git config --local user.email "${local_fallback_id[1]}"
+fi
+
+exit 0
+
