@@ -1,3 +1,5 @@
+# GIT Aliases
+
 alias gl='git log --graph --decorate --oneline --all'
 alias gs='git status -u'
 alias ga='git add'

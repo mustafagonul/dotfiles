@@ -12,8 +12,7 @@
 
 - link:
     ~/.dotfiles: ''
-    ~/.scripts: $HOME/git/MG/scripts
-    ~/.bitbake: $HOME/git/GITHUB/bitbake
+    ~/.scripts: $HOME/GIT/MG/GITHUB/scripts
     ~/.aliases: rc/aliases
     ~/.bashrc: rc/bashrc
     ~/.ctags: rc/ctags

@@ -2,7 +2,7 @@
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 
-# Powerline
+# Powerlevel9k
 
 export TERM="xterm-256color"
 POWERLEVEL9K_MODE='awesome-fontconfig'
@@ -18,13 +18,7 @@ fi
 
 # Scripts
 
-export PATH=${PATH}:${HOME}/.local/bin
-
-
-# Bitbake
-
-# export PATH=${PATH}:$HOME/.bitbake/bin
-# export PYTHONPATH=$HOME/.bitbake/lib
+export PATH=${HOME}/.gem/ruby/2.7.0/bin:${HOME}/Bin:${HOME}/.local/bin:${PATH}
 
 
 # Most terminal emulators (ie. xterm, rxvt, PuTTY, etc) default to intercepting CTRL+S to suspend output

@@ -1,17 +1,22 @@
 [push]
 	  default = simple
 [core]
-	  editor = vim
+	  editor = nano
+    gitproxy = gitproxy
 
 [user]
 	  email = mustafagonul@gmail.com
 	  name = Mustafa Gönül
 
-[url "https://"]
-	  insteadOf = git://
-
 [init]
     templatedir = ~/.git/templates
+
+[diff]
+    tool = meld
+[difftool]
+    prompt = false
+[diftool "meld"]
+    cmd = meld "$REMOTE" "$LOCAL"
 
 [merge]
     tool = kdiff3

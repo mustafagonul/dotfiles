@@ -1,8 +1,8 @@
 # export XDG_CURRENT_DESKTOP=GNOME-Flashback:GNOME
 # exec gnome-session --session=gnome-flash-metacity
-
-exec gnome-session
-
+#
+# exec gnome-session
+#
 # if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]] && [[ -z $ZDG_SESSION_TYPE ]]; then
 #   XDG_SESSION_TYPE=wayland exec dbus-run-session gnome-session
 # fi
